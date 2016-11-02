@@ -34,6 +34,7 @@ Sprint 1
         String lname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
+        String pass2 = request.getParameter("password2");
 
         Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/userlogin?"+"user=root"); 
@@ -45,16 +46,16 @@ Sprint 1
         {
             out.print("<center><h3>This user <b><u>"+uname+"</u></b> already exists in our database.<br /> Please change your username and Try Again.</h3></center>");
         } 
-        else if(pass.equals(newpass) == false)
+        else if(pass.equals(pass2) == false)
         {
             out.print("<center><h2>The Passwords don't match! <br />Click on the Back Button and Try Again.</h2></center>");
 
         }
-        else if(pass.equals(newpass))
+        else if(pass.equals(pass2))
         {
             MessageDigest setToMD5 = MessageDigest.getInstance("MD5");
             //setToMD5.update(pass.getBytes());
-            setToMD5.update(newpass.getBytes());
+            setToMD5.update(pass2.getBytes());
             BASE64Encoder encode = new BASE64Encoder();
             String encodepass = encode.encode(setToMD5.digest());
 
@@ -63,7 +64,7 @@ Sprint 1
             pst.setString(2, fname);
             pst.setString(3, lname);
             pst.setString(4, email);
-            pst.setString(5, pass);
+            pst.setString(5, encodepass);
             int updateDone = pst.executeUpdate(); 
             out.print("<center><h2>Your account has been created! Please Login by going to the");
         
@@ -78,3 +79,6 @@ Sprint 1
             out.print("<center><h2>Oops, something went wrong!.Your password has not been updated!<br />Click on the Back Button and Try Again.</h2></center>");
 
         }
+         %>
+        </body>
+        </html>
