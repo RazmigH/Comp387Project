@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Project Manager: Cuong Nguyen
+Team ID: 8
+Class Number: SOEN 387
+Name:
+Aakash Patel            27503008
+Mahinthien Ratnarajah	27186517
+Michael Cabana          27527489
+Mouad Bouras            27671083
+Razmig Houssikian	40001040
+
+Sprint 1
+-->
+
+<html>
+    <head>
+        <title>Reservation Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <div class="container">
+            <form name="registerForm" action="http://localhost:8080/SOEN387Project/registerauth.jsp" method="post" onsubmit="return isEmpty()">
+                <input type="text" name="username" value="Username" required>
+                <input type="text" name="firstname" value="First Name" required>
+                <input type="text" name="lastname" value="Last Name" required>
+                <inptu type="email" name="email" value="E-mail" required>
+                <input type="password" name="password" value="Password" required>
+                <input type="submit" name="submit" value="Register">
+            </form>
+        </div>
+
+    </body>
+
+</html>
