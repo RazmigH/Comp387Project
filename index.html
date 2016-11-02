@@ -17,68 +17,20 @@ Sprint 1
         <title>Reservation Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/vendor/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css" >
+        <link rel="stylesheet" href="css/style.css" >
 
-<style>
-    body {
-        background-color: perl;
-    }
+         
+        <script src="js/vendor/jquery-3.1.1.js" ></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/vendor/bootstrap.min.js" ></script>
+
+        <script src="js/vendor/script.js" ></script>
 
 
-    #logo {
-        width: 150px;
-        height: 150px;
-        background-color: peachpuff;
-        border: solid 1px green;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        margin-top: -140px;
-        margin-left: -70px;
-        z-index: 100;
-
-    }
-
-    #container {
-        width: 400px;
-        height: 400px;
-        background-color: White;
-        border: solid 1px blue;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        margin-top: -200px;
-        margin-left: -200px;
-        z-index: 100;
-
-    }
-
-    input[type=text], [type=password]
-    {
-        border: 1px solid green;
-        border-radius: 4px;
-        width: 95%;
-        text-align: center;
-        padding: 7px;
-        margin: 4px 2px;
-
-    }
-    input[type=button], input[type=submit], input[type=reset] {
-        background-color: blueviolet;
-        border: none;
-        color: white;
-        padding: 12px 24px;
-
-        margin: 4px 2px;
-
-    }
-
-    form
-    {
-        margin: 240px 2px;
-
-    }
-
-</style>
 <script>
 function isEmpty() {
     var user = document.forms["loginForm"]["username"].value;
@@ -98,7 +50,7 @@ function isEmpty() {
     else
     {
         document.getElementById("username").focus();
-        document.getElementById("password").focus();s
+        document.getElementById("password").focus();
          alert("Please enter the username and password");
         return false;
     }
@@ -109,19 +61,18 @@ function isEmpty() {
     </head>
     <body>
 
-       <div id="container">
-           <div id="logo"></div>
-           <form name="loginForm" action="http://localhost:8080/SOEN387Project/authenticate.jsp" method="post" onsubmit="return isEmpty()">
-
-            <input type="text" name="username"  placeholder="Enter UserName" required><br>
-
-                    <input type="password" name="password"  placeholder="Enter Password" required><br>
-
-                    <center><input type="submit" name="submit">
-                        <input type="reset" name="reset"></center>
-
-        </form>
-       </div>
+            <div class="login-container">
+                    <div id="output"></div>
+                    <div class="avatar"></div>
+                    <div class="form-box">
+                        <form name="loginForm" action="http://localhost:8080/SOEN387Project/authenticate.jsp" method="post" onsubmit="return isEmpty()">
+                            <input  name="username"  placeholder="Enter Username" required>
+                            <input  name="password" type="password"  placeholder="Enter Password" required>
+                            <button class="btn btn-info btn-block login" type="submit" name="submit">Login</button>
+                        </form>
+                    </div>
+                </div>
+                
 
 
 

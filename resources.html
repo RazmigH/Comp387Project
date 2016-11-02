@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--
+Project Manager: Cuong Nguyen
+Team ID: 8
+Class Number: SOEN 387
+Name:
+Aakash Patel            27503008
+Mahinthien Ratnarajah	27186517
+Michael Cabana          27527489
+Mouad Bouras            27671083
+Razmig Houssikian	40001040
+
+Sprint 1
+-->
+<html>
+    <head>
+        <title>Reservation Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/vendor/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/vendor/bootstrap-theme.min.css" >
+        <link rel="stylesheet" href="css/style.css" >
+
+         
+        <script src="js/vendor/jquery-3.1.1.js" ></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/vendor/bootstrap.min.js" ></script>
+
+        <script src="js/vendor/script.js" ></script>
+
+<style>
+/*    body {
+        background-color: perl;
+    }
+
+
+    #logo {
+        width: 150px;
+        height: 150px;
+        background-color: peachpuff;
+        border: solid 1px green;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-top: -140px;
+        margin-left: -70px;
+        z-index: 100;
+
+    }
+
+    #main-container {
+        width: 1200px;
+        min-height: 100%;
+        background-color: White;
+        border: solid 1px blue;
+        position: fixed;
+        left: 50%;
+        margin-left: -600px;
+        z-index: 100;
+        text-align:center;
+
+    }
+
+    .container{
+        margin: 50px 10px;
+        border: solid 0px green;
+
+    }
+
+    .left{
+        text-align: left;
+    }
+
+    input[type=text], [type=password]
+    {
+        border: 1px solid green;
+        border-radius: 4px;
+        width: 95%;
+        text-align: center;
+        padding: 7px;
+        margin: 4px 2px;
+
+    }
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        padding: 12px 24px;
+
+        margin: 4px 2px;
+
+    }
+*/
+
+</style>
+<script>
+
+
+</script>
+
+
+    </head>
+    <body>
+
+       <div class="container" >
+
+        <div class="row" >
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                     <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-admin">
+                            <span class="sr-only">Toggle Menu</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand">MyReserv <span class="glyphicon glyphicon-stats"></span></a>
+                        <p class="navbar-text">Resource reservation</p>
+                    </div><!--/.navbar-header -->
+                    <div class="collapse navbar-collapse" id="navbar-admin">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> View Resources</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-time"></span> My Resources</a></li>
+                            <li><a href="#" class="hidden-lg hidden-md"><span class="glyphicon glyphicon-lock"></span> Log In</a></li>
+                            <li><a href="#" class="hidden-lg hidden-md"><span class="glyphicon glyphicon-pencil"></span> Sign Up</a></li>
+                        </ul>
+                        
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden-sm hidden-xs">
+                                <button type="button" class="btn btn-danger navbar-btn">
+                                    <a href="" class="link-button-color"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+                                </button>
+                            </li>
+                        </ul>
+                        
+ 
+                 </div><!--/.container-fluid -->
+            </nav><!--/.navbar -->
+        </div>
+        </div>
+
+       <div class="container whitebg" >
+
+        <div class="resources-container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12"><h1>Resource list : </h1></div>
+            <div class="col-lg-6 col-sm-12">
+                <span class="pull-right resource-date">
+                    <form >
+                        <b>Pickup Date </b>
+                          <input type="date" name="bday" min="2016-10-28">
+                    </form>
+                </span>
+            </div>
+        </div>
+        
+        <hr /> <!-- line -->
+
+        <div class="row">
+                <!-- Individual Resource Start -->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                      <div class="caption">
+                        <div class='col-lg-12 well well-add-card'>
+                            <h4>Resource1 Name</h4>
+                        </div>
+                        <div class='col-lg-12'>
+                            <p>resource details resource details</p>
+                            <p class"text-muted">more details more details more details some more details some more details more details</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">View</button>
+                        <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Hide</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Individual Resource End -->
+
+                <!-- Individual Resource Start -->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                      <div class="caption">
+                        <div class='col-lg-12 well well-add-card'>
+                            <h4>Resource2 Name</h4>
+                        </div>
+                        <div class='col-lg-12'>
+                            <p>resource details resource details</p>
+                            <p class"text-muted">more details more details more details some more details some more details more details</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">View</button>
+                        <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Hide</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Individual Resource End -->
+
+                <!-- Individual Resource Start -->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                      <div class="caption">
+                        <div class='col-lg-12 well well-add-card'>
+                            <h4>Resource3 Name</h4>
+                        </div>
+                        <div class='col-lg-12'>
+                            <p>resource details resource details</p>
+                            <p class"text-muted">more details more details more details some more details some more details more details</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">View</button>
+                        <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Hide</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Individual Resource End -->
+
+
+                <!-- Individual Resource Start -->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                      <div class="caption">
+                        <div class='col-lg-12 well well-add-card'>
+                            <h4>Resource4 Name</h4>
+                        </div>
+                        <div class='col-lg-12'>
+                            <p>resource details resource details</p>
+                            <p class"text-muted">more details more details more details some more details some more details more details</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">View</button>
+                        <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Hide</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Individual Resource End -->
+
+                <!-- Individual Resource Start -->
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                  <div class="thumbnail">
+                      <div class="caption">
+                        <div class='col-lg-12 well well-add-card'>
+                            <h4>Resource5 Name</h4>
+                        </div>
+                        <div class='col-lg-12'>
+                            <p>resource details resource details</p>
+                            <p class"text-muted">more details more details more details some more details some more details more details</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-xs btn-update btn-add-card">View</button>
+                        <button type="button" class="btn btn-danger btn-xs btn-update btn-add-card">Hide</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Individual Resource End -->
+            </div>
+        </div>
+
+
+        </div>  
+       </div>
+
+
+
+    </body>
+</html>
