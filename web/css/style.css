@@ -1,19 +1,28 @@
-body{background: #eee }
+body{
+        background: #efefef; 
+}
 
 /*html,body{
     position: relative;
     height: 100%;
-}*/
+}*/    
 
 .whitebg{
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+    webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 5px rgba(0,0,0,.075);
+
+}
+
+.custom-nav{
+    background-image:none;
     background-color:white;
-    border: 1px solid #ccc;
 }
 
 .resources-container{
     position: relative;
     width: 100%;
     margin: 50px auto;
+    margin-top:0px;
     padding:25px;
     text-align: left;
     background: #fff;
@@ -23,6 +32,11 @@ body{background: #eee }
 .resource-date{
   margin-top:35px;
 }
+
+.resource-card{
+    z-index:2;
+}
+
 .login-container{
     position: relative;
     width: 300px;
@@ -210,4 +224,7 @@ body{background: #eee }
 .link-button-color:hover {
     text-decoration: none;
     color: #333;
+}
+.reservation-btn{
+    margin:10px 0px 0px 0px  !important;
 }

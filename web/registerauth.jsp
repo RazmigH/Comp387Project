@@ -37,7 +37,7 @@ Sprint 1
         String pass2 = request.getParameter("password2");
 
         Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/userlogin?"+"user=root"); 
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/userLogin?"+"user=root"); 
         PreparedStatement usercheck = conn.prepareStatement("SELECT * FROM login WHERE username=?");
         usercheck.setString(1, uname);
         ResultSet resultUser  = usercheck.executeQuery();
