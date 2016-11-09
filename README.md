@@ -10,7 +10,7 @@
  <h2>Libraries currenctly used: </h2>
  [JQuery](http://jquery.com "JQuery Home Page") <br>
  [Bootstrap](http://getbootstrap.com/ "bootstrap Home Page") <br>
- [Animate](https://dneden.github.io/animate.css/"animate Home Page")<br>
+ [Animate](https://daneden.github.io/animate.css/ "Animate Home Page")<br>
  [WOW](http://mynameismatthieu.com/WOW "wow Home Page")<br>
 
 
