@@ -38,25 +38,26 @@ Sprint 1
     {
         out.print("Passwords don't match.");    
     } 
-    else if(validUser.contains(new User(1,1,email,pass,name,phone,dep)) == false)
+    else if(email != null)
     {
-        out.print("User already exists");
-
-    }
-    else
-    {
-        MessageDigest setToMD5 = MessageDigest.getInstance("MD5");
-        setToMD5.update(pass2.getBytes());
-        BASE64Encoder encode = new BASE64Encoder();
-        String encodepass = encode.encode(setToMD5.digest());
         
-        validUser.add(new User (1,1,email,pass,name,phone,dep));
-               
-        response.sendRedirect("index.html");  
+        for(int i=0; i<=validUser.size(); i++)
+        {
+            if(validUser.get(i).email.equals(email)){
+                out.print("User already exists");
+                break;
+            }else{
+                MessageDigest setToMD5 = MessageDigest.getInstance("MD5");
+                setToMD5.update(pass2.getBytes());
+                BASE64Encoder encode = new BASE64Encoder();
+                String encodepass = encode.encode(setToMD5.digest());
 
+                validUser.add(new User (1,1,email,pass,name,phone,dep));
 
+                response.sendRedirect("index.html");  
+            }
+        }
 
     }
-    
      %>
       
