@@ -26,23 +26,24 @@
     
         <div class="row">
             <div class="col-lg-12 col-sm-12">
-            <form name="pickup-date-search" action="resources" method="get" >
+            <form name="pickup-date-search" action="resources.jsp" method="get" >
                 <div class="input-group">
                     <div class="input-group-btn search-panel">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span id="search_concept">Looking for</span> <span class="caret"></span>
+                            <span id="search_concept"> <% out.print((request.getParameter("search-resource-type") == null || request.getParameter("search-resource-type").equals("all")  ) ? "Looking for" : request.getParameter("search-resource-type")  ); %> 
+                            </span> <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="room">Room</a></li>
+                          <li><a href="Room">Room</a></li>
                           <li><a href="Equipment">Equipment</a></li>
                           <li class="divider"></li>
-                          <li><a href="#all">Anything</a></li>
+                          <li><a href="all">Anything</a></li>
                         </ul>
                     </div>
-                    <input type="hidden" name="search_param" value="all" id="search_param">         
-                    <input type="text" class="form-control" name="x" placeholder="Search term...">
+                    <input type="hidden" name="search-resource-type" value="all" id="search_param">         
+                    <input type="text" class="form-control" name="search-text" placeholder="Search term..." <% out.print((request.getParameter("search-text") == null ) ? "" : "value='" + request.getParameter("search-text") + "'"  ); %> >
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                     </span>
                 </div>
             </form>
@@ -52,10 +53,24 @@
                 <hr /> <!-- line -->
 
         <div class="row">
-            
-            <% for (int i = 0 ; i < mylist.size() ; i++) {%>
+            <% 
+               int pagesize = 10;
+               pagesize = (pagesize > mylist.size()) ? mylist.size() : pagesize;
+               int start = 0;
+               int end = mylist.size();
+               int activePage =  (request.getParameter("page")==null) ? -1 : Integer.parseInt(request.getParameter("page")) ;
+               start = (activePage - 1) * pagesize  ; 
+               end   = activePage * pagesize  ; 
+
+               start = (start > mylist.size()) ? mylist.size() : start ;               
+               start = (start < 0) ? 0 : start ; 
+               end = (end > mylist.size()) ? mylist.size() : end ;               
+               end = (end < 0) ? pagesize : end ;
+               
+               for (int i = start; i < end ; i++) { 
+                                                           %>
                 <!-- Individual Resource Start -->
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 resource-card <% if(i > 5){out.print(" wow slideInUp ");} %> "  id="ResourceCard<% out.print(mylist.get(i).resourceID); %>">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 resource-card <% if(i > (start + 5)){out.print(" wow slideInUp ");} %> "  id="ResourceCard<% out.print(mylist.get(i).resourceID); %>">
                   <div class="thumbnail">
                       <div class="caption">
                         <div class='col-lg-12 well well-add-card'>
@@ -90,6 +105,44 @@
                 <% } %>
 
             </div>
+                
+                <div class="row wow slideInUp ">
+                    <div class="col-xs-12">
+                      <ul class="pagination">  
+                        <li><a href="resources.jsp?page=1"><<</a></li>
+                        <%                             
+                            final int pages = ((mylist.size()%pagesize) == 0) ? (int)(mylist.size() / pagesize) : ((int)(mylist.size() / pagesize)) + 1  ; 
+                            
+                            int fp = 1;
+                            int lp = pages;
+                            
+                            if (activePage <= 3)
+                            {
+                                fp = 1;
+                                lp = (pages <= 5 ) ? pages : 5 ;
+                            }
+                            else if( activePage >= (pages - 2) )
+                            {
+                                fp = pages - 4;
+                                fp = ( fp < 1 )? 1 : fp ;
+                                lp = pages;
+                            }
+                            else
+                            {
+                                fp = activePage - 2;
+                                lp = activePage + 2;
+                            }
+                            
+                            for(int i = fp ; i <= lp; i++)
+                            {
+                                out.print("<li " + ((i == activePage || (activePage < 0 && i==1) ) ? "class=\"active\"" : "" ) + " ><a  href=\"resources.jsp?page=" + i + "\">" + i + "</a></li>");
+                            }
+                        %>
+                        <li><a href="resources.jsp?page=<%out.print(pages);%>">>></a></li>
+
+                      </ul>
+                    </div>
+                </div>
         </div>
 
 
